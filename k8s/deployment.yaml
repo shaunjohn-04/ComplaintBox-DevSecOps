@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: complaintbox
-          image: 104360117424.dkr.ecr.ap-south-1.amazonaws.com/complaintbox:2
+          image: 104360117424.dkr.ecr.ap-south-1.amazonaws.com/complaintbox:3
           ports:
             - containerPort: 8000
           env:
