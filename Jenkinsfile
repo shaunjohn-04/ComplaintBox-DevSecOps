@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/sumith-k-sam/complaintbox.git'
+                    url: 'https://github.com/shaunjohn-04/ComplaintBox-DevSecOps.git'
             }
         }
 
