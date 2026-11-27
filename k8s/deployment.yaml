@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: complaintbox
+  namespace: complaintbox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: complaintbox
+  template:
+    metadata:
+      labels:
+        app: complaintbox
+    spec:
+      containers:
+        - name: complaintbox
+          image: 104360117424.dkr.ecr.ap-south-1.amazonaws.com/complaintbox:2
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: complaintbox-db
+                  key: DB_NAME
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: complaintbox-db
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: complaintbox-db
+                  key: DB_PASSWORD
+            - name: DB_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: complaintbox-db
+                  key: DB_HOST
